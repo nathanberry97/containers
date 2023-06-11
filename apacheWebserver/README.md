@@ -71,3 +71,16 @@ From here you are then able to enter into the browser on your mobile:
 
 This will only work if your mobile is connected to the same network as your
 computer.
+
+## Podman systemd
+
+To get the container to deploy on boot using systemd you will need to run the
+following commands:
+
+```shell
+mkdir -p /home/${user}/.config/systemd/user/
+cd /home/${user}/.config/systemd/user/
+podman generate systemd --name webserver --new --files
+systemd --user enable container-webserver
+```
+
